@@ -62,11 +62,19 @@ export default function Dashboard() {
   const Sidebar = ({ className = "" }: { className?: string }) => (
     <div className={`flex flex-col h-full ${className}`}>
       <div className="p-6 border-b border-slate-200">
-        <div className="flex items-center gap-2">
-          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-blue-400 flex items-center justify-center text-white font-bold text-sm">
-            OP
+        <div className="flex items-center gap-3">
+          <div className="relative">
+            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-blue-400 flex items-center justify-center text-white font-bold text-sm shadow-md">
+              OP
+            </div>
+            <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-white shadow-sm flex items-center justify-center border border-slate-200">
+              <Crown className="w-4 h-4 text-amber-500" />
+            </div>
           </div>
-          <h1 className="text-xl font-heading font-bold text-primary">OPAi</h1>
+          <div>
+            <h1 className="text-xl font-heading font-bold text-primary leading-tight">OPAi</h1>
+            <div className="text-[11px] font-semibold text-slate-600">VIP 00</div>
+          </div>
         </div>
       </div>
       <nav className="flex-1 px-3 py-6 space-y-1">
@@ -132,13 +140,6 @@ export default function Dashboard() {
               >
                 <Menu className="w-5 h-5" />
               </Button>
-              <div className="relative w-72 hidden md:block">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
-                <Input 
-                  placeholder="Search user / wallet / ID..." 
-                  className="pl-10 bg-slate-50 border border-slate-200 focus:bg-white transition-all rounded-lg shadow-sm text-sm h-9"
-                />
-              </div>
             </div>
             
             <div className="flex items-center gap-3">
