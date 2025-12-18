@@ -75,8 +75,8 @@ export default function Dashboard() {
           { icon: LayoutDashboard, label: "Dashboard", path: "/dashboard" },
           { icon: Zap, label: "Pay By QR", path: "/qr" },
           { icon: DollarSign, label: "Pay By Tether", path: "/tether" },
-          { icon: Target, label: "Directs", path: "/directs" },
-          { icon: Users, label: "Team", path: "/team" },
+          { icon: Target, label: "Core Circle", path: "/directs" },
+          { icon: Users, label: "Extended Circle", path: "/team" },
           { icon: Trophy, label: "Genealogy", path: "/genealogy" },
           { icon: BarChart3, label: "Overview", path: "/overview" },
         ].map((item) => (
@@ -343,8 +343,8 @@ export default function Dashboard() {
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
               {[
                 { icon: TrendingUp, label: "Referrals", value: "3", color: "from-blue-400 to-blue-600" },
-                { icon: Users, label: "Team Size", value: "12", color: "from-emerald-400 to-emerald-600" },
-                { icon: Wallet, label: "Total Earnings", value: "$1,775", color: "from-purple-400 to-purple-600" },
+                { icon: Users, label: "Extended Circle Size", value: "12", color: "from-emerald-400 to-emerald-600" },
+                { icon: Wallet, label: "Total Rewards", value: "$1,775", color: "from-purple-400 to-purple-600" },
                 { icon: Trophy, label: "Active Level", value: "2", color: "from-orange-400 to-orange-600" },
               ].map((stat, i) => (
                 <Card key={i} className="rounded-2xl border border-slate-200 shadow-md bg-white hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
@@ -361,13 +361,13 @@ export default function Dashboard() {
               ))}
             </div>
 
-            {/* Investment Stats */}
+            {/* Contribution / Rewards */}
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 pb-6">
               {[
-                { icon: Wallet, label: "Self Investment", value: "5.00", color: "from-blue-400 to-blue-600" },
-                { icon: Gift, label: "Direct Investment", value: "10.00", color: "from-emerald-400 to-emerald-600" },
-                { icon: Users, label: "Team Investment", value: "60.00", color: "from-purple-400 to-purple-600" },
-                { icon: TrendingUp, label: "Total Withdraw", value: "3.50", color: "from-orange-400 to-orange-600" },
+                { icon: Wallet, label: "Personal Contribution", value: "5.00", color: "from-blue-400 to-blue-600" },
+                { icon: Gift, label: "Core Circle Contribution", value: "10.00", color: "from-emerald-400 to-emerald-600" },
+                { icon: Users, label: "Extended Circle Contribution", value: "60.00", color: "from-purple-400 to-purple-600" },
+                { icon: TrendingUp, label: "Total Rewards", value: "3.50", color: "from-orange-400 to-orange-600" },
               ].map((stat, i) => (
                 <Card key={i} className="rounded-2xl border border-slate-200 shadow-md bg-white hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                   <CardContent className="p-4">
