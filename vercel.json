@@ -1,6 +1,7 @@
 {
   "version": 2,
-  "framework": "vite",
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist/public"
+  "framework": null,
+  "installCommand": "cd Dashboard/Metallic-Dashboard && npm install",
+  "buildCommand": "cd Dashboard/Metallic-Dashboard && npm run build",
+  "outputDirectory": "Dashboard/Metallic-Dashboard/dist/public"
 }
