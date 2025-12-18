@@ -1,0 +1,3 @@
+# Exclude local/editor caches and large archives
+Dashboard/Metallic-Dashboard/.local/
+Dashboard/Metallic-Dashboard (1).zip
