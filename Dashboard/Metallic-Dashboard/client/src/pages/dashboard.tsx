@@ -18,6 +18,13 @@ import {
   Crown,
   Diamond,
   Gem,
+  Link2,
+  Copy,
+  Share2,
+  ShieldCheck,
+  FileText,
+  Download,
+  ExternalLink,
   ChevronDown,
   ChevronRight,
   Lock,
@@ -58,6 +65,18 @@ const levelData = [
 export default function Dashboard() {
   const [location] = useLocation();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const referralLink = "https://user.ordinarypeopleai.com/register?sponsor=OPAI";
+  const badgeCounts = [
+    { label: "ACTIVE", count: 1, color: "text-amber-600" },
+    { label: "HELPFUL", count: 1, color: "text-sky-600" },
+    { label: "HONEST", count: 1, color: "text-orange-600" },
+  ];
+
+  const copyReferral = () => {
+    navigator.clipboard?.writeText(referralLink).catch(() => {
+      console.error("Unable to copy referral link");
+    });
+  };
 
   const Sidebar = ({ className = "" }: { className?: string }) => (
     <div className={`flex flex-col h-full ${className}`}>
@@ -152,6 +171,73 @@ export default function Dashboard() {
           </header>
 
           <div className="p-6 space-y-6 max-w-full overflow-x-hidden">
+            {/* TOP STRIP: REFERRAL / BADGES / PDF */}
+            <div className="grid gap-4 lg:grid-cols-3">
+              {/* Referral */}
+              <Card className="rounded-2xl border border-slate-200 shadow-md bg-white">
+                <CardContent className="p-4 flex gap-3 items-center">
+                  <div className="w-12 h-12 rounded-xl border border-slate-200 bg-slate-50 flex items-center justify-center text-primary font-bold shadow-sm">
+                    OPAI
+                  </div>
+                  <div className="flex-1 space-y-2">
+                    <p className="text-xs font-semibold text-slate-600">OpAi Referral Link</p>
+                    <div className="flex items-center gap-2">
+                      <div className="flex-1 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs font-mono text-slate-800 overflow-hidden text-ellipsis">
+                        {referralLink}
+                      </div>
+                      <Button size="icon" variant="outline" className="h-8 w-8" onClick={copyReferral}>
+                        <Copy className="w-4 h-4" />
+                      </Button>
+                      <Button size="icon" variant="outline" className="h-8 w-8">
+                        <Share2 className="w-4 h-4" />
+                      </Button>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Badges */}
+              <Card className="rounded-2xl border border-slate-200 shadow-md bg-white">
+                <CardContent className="p-4">
+                  <p className="text-xs font-semibold text-slate-600 mb-3">Badges</p>
+                  <div className="grid grid-cols-3 gap-3">
+                    {badgeCounts.map((badge) => (
+                      <div key={badge.label} className="flex flex-col items-center gap-1 rounded-lg border border-slate-200 bg-slate-50 p-3 shadow-sm">
+                        <div className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center shadow-inner">
+                          <ShieldCheck className={`w-6 h-6 ${badge.color}`} />
+                        </div>
+                        <span className="text-[11px] font-bold text-slate-700">{badge.label}</span>
+                        <span className="text-sm font-bold text-slate-900">{badge.count}</span>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* PDF */}
+              <Card className="rounded-2xl border border-slate-200 shadow-md bg-white">
+                <CardContent className="p-4 flex gap-3 items-center">
+                  <div className="w-12 h-12 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center shadow-sm">
+                    <FileText className="w-6 h-6 text-red-500" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-xs font-semibold text-slate-600">OpAi PDF</p>
+                    <p className="text-[11px] text-slate-600">Presentation PDF — share with your prospects.</p>
+                    <div className="flex gap-2 mt-2">
+                      <Button variant="outline" size="sm" className="h-8 px-3">
+                        <ExternalLink className="w-4 h-4 mr-1" />
+                        View
+                      </Button>
+                      <Button size="sm" className="h-8 px-3">
+                        <Download className="w-4 h-4 mr-1" />
+                        Download
+                      </Button>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
             {/* 2x2 GRID LAYOUT */}
             <div className="grid gap-6 lg:grid-cols-2">
               {/* TOP-LEFT: BADGE RANK */}
