@@ -16,6 +16,8 @@ import {
   DollarSign,
   Target,
   Crown,
+  Diamond,
+  Gem,
   ChevronDown,
   ChevronRight,
   Lock,
@@ -28,10 +30,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { Badge } from "@/components/ui/badge";
 import gridBg from "@assets/generated_images/white_background_with_subtle_blue_grid_pattern.png";
-import goldIcon from "@assets/generated_images/simple_vector_gold_crown_badge_icon.png";
-import sapphireIcon from "@assets/generated_images/simple_vector_sapphire_gemstone_icon.png";
-import emeraldIcon from "@assets/generated_images/simple_vector_emerald_gemstone_icon.png";
-import diamondIcon from "@assets/generated_images/simple_vector_diamond_gemstone_icon.png";
 
 const leaderboardData = [
   { sr: 1, userId: "USER1001", rank: "DIAMOND", vipLevel: 1 },
@@ -164,17 +162,18 @@ export default function Dashboard() {
                 <CardContent className="p-6">
                   <div className="grid grid-cols-3 gap-3 mb-5">
                     {[
-                      { name: "GOLD", image: goldIcon, current: true },
-                      { name: "SAPPHIRE", image: sapphireIcon, current: false },
-                      { name: "EMERALD", image: emeraldIcon, current: false },
+                      { name: "GOLD", icon: Crown, className: "text-amber-500", current: true },
+                      { name: "SAPPHIRE", icon: Diamond, className: "text-sky-600", current: false },
+                      { name: "EMERALD", icon: Gem, className: "text-emerald-600", current: false },
                     ].map((badge, idx) => (
                       <div key={idx} className="flex flex-col items-center gap-2 group">
                         <div className={`relative w-20 h-20 rounded-xl shadow-md group-hover:shadow-lg transition-all bg-slate-50 flex items-center justify-center ${badge.current ? 'ring-3 ring-primary ring-offset-2 scale-105' : 'opacity-70'}`}>
-                          <img 
-                            src={badge.image} 
-                            alt={badge.name}
-                            className="w-16 h-16 object-contain"
-                          />
+                          <div className="w-12 h-12 flex items-center justify-center rounded-full bg-white shadow-inner border border-slate-100">
+                            <badge.icon
+                              className={`w-8 h-8 ${badge.className}`}
+                              strokeWidth={2.2}
+                            />
+                          </div>
                         </div>
                         <p className="text-xs font-bold text-slate-700 text-center leading-tight">{badge.name}</p>
                       </div>
