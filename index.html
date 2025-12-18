@@ -1,0 +1,562 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OPAI - AI-Powered Digital Ecosystem for Smart Growth & Community Empowerment</title>
+  <meta name="description" content="OPAI is an AI-powered digital ecosystem that empowers individuals with intelligent automation, smart tools, and a transparent, future-ready platform for growth.">
+  <link rel="icon" type="image/x-icon" href="https://user.ordinarypeopleai.com/assets/images/favicon2.ico">
+  <style>
+:root {
+  --theme-bg: #f9fbff;
+  --theme-header-bg: #f1f6ff;
+  --theme-menu-bg: #eaf2ff;
+  --theme-primary-bg: #4a63d9;
+  --theme-primary-text: #2f3a8f;
+  --theme-high-text: #3b6fff;
+  --theme-cyyan-500: #6fa8ff;
+  --theme-cyyan-400: #8fc0ff;
+  --theme-cyyan-200: #d6e8ff;
+  --theme-skky-600: #3f5bd8;
+  --theme-skky-500: #5b78ff;
+  --theme-skky-400: #6fa8ff;
+  --theme-skky-300: #9ac5ff;
+  --theme-skky-200: #cfe2ff;
+  --theme-skky-100: #edf4ff;
+  --theme-skkky-50: #f7faff;
+  --theme-bllue-500: #2a3480;
+  --theme-bllue-400: #5f86ff;
+  --theme-primary-border: #c7d4ff;
+  --theme-secondary-border: #9bb7ff80;
+  --theme-secondary-text: #6a78b8;
+  --theme-cardbg: #ffffff;
+}
+  </style>
+  <link rel="preload" as="style" href="https://user.ordinarypeopleai.com/build/assets/app-BIvHCduQ.css">
+  <link rel="stylesheet" href="https://user.ordinarypeopleai.com/build/assets/app-BIvHCduQ.css">
+  <link rel="preload" as="style" href="https://user.ordinarypeopleai.com/build/assets/app-BIvHCduQ.css">
+  <link rel="modulepreload" href="https://user.ordinarypeopleai.com/build/assets/app-BE6Jm482.js">
+  <link rel="stylesheet" href="https://user.ordinarypeopleai.com/build/assets/app-BIvHCduQ.css">
+  <script type="module" src="https://user.ordinarypeopleai.com/build/assets/app-BE6Jm482.js"></script>
+</head>
+<body class="min-h-screen flex flex-col text-white !bg-[var(--theme-bg)] bg-[#bfe7ff]">
+  <header class="fixed top-0 left-0 right-0 z-40">
+    <div class="flex items-center justify-between px-4 md:px-8 py-4 sm:py-3 relative z-20 bg-[#d8ebff] backdrop-blur-xl border-b border-slate-500 text-slate-900">
+      <div class="flex items-center gap-2.5">
+        <a href="https://user.ordinarypeopleai.com/dashboard" class="flex items-center gap-2">
+          <img src="https://user.ordinarypeopleai.com/assets/images/opai.webp" alt="OpAI Logo" class="w-12 md:w-12 h-auto">
+          <span class="hidden sm:inline font-semibold text-sm md:text-2xl tracking-wide text-slate-900">OpAi</span>
+        </a>
+      </div>
+      <div class="flex items-center gap-2 md:gap-4">
+        <button id="connectBtn" class="px-3 sm:px-5 py-2 flex items-center justify-center gap-2 text-base capitalize tracking-wide rounded-lg border border-sky-200 bg-gradient-to-r from-sky-500 to-cyan-400 text-white font-semibold shadow-[0_8px_20px_rgba(56,189,248,.30)] hover:shadow-[0_14px_28px_rgba(56,189,248,.45)] transition-all duration-300 ease-out group">
+          <span>#11HBWCD</span>
+        </button>
+        <button id="menuToggle" class="md:hidden p-2 rounded-lg bg-[#bfe7ff] hover:bg-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-300 text-slate-700">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <aside id="sidebar" class="fixed top-[82px] md:top-[74px] left-0 bottom-0 w-60 md:w-64 aside-bg bg-[#F5F7FC] z-20 backdrop-blur-2xl border-r border-slate-500 text-black transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-out flex flex-col shadow-lg md:shadow-none">
+      <nav class="flex flex-col gap-0.5 w-full px-2.5 pt-6 text-sm md:text-[15px]">
+        <div class="flex flex-col items-center text-center gap-2 mb-2">
+          <div class="flex items-center gap-2">
+            <div class="relative">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-md ring-1 ring-[var(--theme-skky-400)]/20">
+                <img id="profilePreview" src="https://user.ordinarypeopleai.com/storage" alt="Profile" class="w-full h-full object-cover">
+              </div>
+            </div>
+            <h3 class="text-base sm:text-lg font-semibold text-slate-900 leading-tight">
+              <span id="profileNameText">OpAi</span>
+            </h3>
+          </div>
+          <span class="inline-flex items-center gap-2 rounded-full bg-[var(--theme-skkky-50)] border border-[var(--theme-skky-200)] px-3 py-1 text-[11px] sm:text-xs font-medium text-[var(--theme-primary-text)]">
+            <img src="https://user.ordinarypeopleai.com/assets/images/rank/emerald-rank.webp" alt="Rank" class="w-6 h-6 object-contain">
+            Rank: <span class="font-semibold">-</span>
+          </span>
+          <span class="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-[11px] sm:text-xs font-medium text-emerald-700 border border-emerald-300">
+            VIP Level: <span class="font-semibold text-slate-900">-</span>
+          </span>
+        </div>
+        <p class="px-3 pb-1 text-[11px] uppercase tracking-[0.18em] text-slate-400">Menu</p>
+        <a href="https://user.ordinarypeopleai.com/profile" class="flex items-center gap-2.5 px-3 py-2 rounded-xl transition bg-blue-50 text-sky-700 border border-blue-300 shadow-sm border-l-4 border-l-blue-500">
+          <span class="inline-flex items-center justify-center bg-blue-100 p-1 rounded-lg">
+            <img src="https://user.ordinarypeopleai.com/assets/images/menu/profile.webp" width="64" height="48" alt="Logo" class="w-7 h-7 object-contain">
+          </span>
+          <span>Profile</span>
+        </a>
+        <a href="https://user.ordinarypeopleai.com/dashboard" class="flex items-center gap-2.5 px-3 py-2 rounded-xl transition text-slate-700 border border-transparent hover:bg-slate-300 hover:text-sky-600 hover:border-blue-100">
+          <span class="inline-flex items-center justify-center bg-[#bfe7ff] p-1.5 rounded-lg">
+            <img src="https://user.ordinarypeopleai.com/assets/images/menu/dashboard.webp" width="64" height="48" alt="Logo" class="w-6 h-6 object-contain">
+          </span>
+          <span>Dashboard</span>
+        </a>
+        <a href="https://user.ordinarypeopleai.com/pay-qr" class="flex items-center gap-2.5 px-3 py-2 rounded-xl transition text-slate-700 border border-transparent hover:bg-slate-300 hover:text-sky-600 hover:border-blue-100">
+          <span class="inline-flex items-center justify-center bg-[#bfe7ff] p-1.5 rounded-lg">
+            <img src="https://user.ordinarypeopleai.com/assets/images/menu/pay-by-qr.webp" width="64" height="48" alt="Logo" class="w-7 h-7 object-contain">
+          </span>
+          <span>Pay By QR</span>
+        </a>
+        <a href="https://user.ordinarypeopleai.com/pay-topup" class="flex items-center gap-2.5 px-3 py-2 rounded-xl transition text-slate-700 border border-transparent hover:bg-slate-300 hover:text-sky-600 hover:border-blue-100">
+          <span class="inline-flex items-center justify-center bg-[#bfe7ff] p-1 rounded-lg">
+            <img src="https://user.ordinarypeopleai.com/assets/images/menu/pay-by-topup.webp" width="64" height="48" alt="Logo" class="w-7 h-7 object-contain">
+          </span>
+          <span>Pay By Topup</span>
+        </a>
+        <a href="https://user.ordinarypeopleai.com/directs" class="flex items-center gap-2.5 px-3 py-2 rounded-xl transition text-slate-700 border border-transparent hover:bg-slate-300 hover:text-sky-600 hover:border-blue-100">
+          <span class="inline-flex items-center justify-center bg-[#bfe7ff] p-1 rounded-lg">
+            <img src="https://user.ordinarypeopleai.com/assets/images/menu/directs.webp" width="64" height="48" alt="Logo" class="w-7 h-7 object-contain">
+          </span>
+          <span>Directs</span>
+        </a>
+        <a href="https://user.ordinarypeopleai.com/team" class="flex items-center gap-2.5 px-3 py-2 rounded-xl transition text-slate-700 border border-transparent hover:bg-slate-300 hover:text-sky-600 hover:border-blue-100">
+          <span class="inline-flex items-center justify-center bg-[#bfe7ff] p-1 rounded-lg">
+            <img src="https://user.ordinarypeopleai.com/assets/images/menu/team.webp" width="64" height="48" alt="Logo" class="w-8 h-8 object-contain">
+          </span>
+          <span>Team</span>
+        </a>
+        <a href="https://user.ordinarypeopleai.com/genealogy" class="flex items-center gap-2.5 px-3 py-2 rounded-xl transition text-slate-700 border border-transparent hover:bg-slate-300 hover:text-sky-600 hover:border-blue-100">
+          <span class="inline-flex items-center justify-center bg-[#bfe7ff] p-1 rounded-lg">
+            <img src="https://user.ordinarypeopleai.com/assets/images/menu/genealogy.webp" width="64" height="48" alt="Logo" class="w-8 h-8 object-contain">
+          </span>
+          <span>Genealogy</span>
+        </a>
+        <a href="https://user.ordinarypeopleai.com/overview" class="flex items-center gap-2.5 px-3 py-2 rounded-xl transition text-slate-700 border border-transparent hover:bg-slate-300 hover:text-sky-600 hover:border-blue-100">
+          <span class="inline-flex items-center justify-center bg-[#bfe7ff] p-1 rounded-lg">
+            <img src="https://user.ordinarypeopleai.com/assets/images/menu/overview.webp" width="64" height="48" alt="Logo" class="w-8 h-8 object-contain">
+          </span>
+          <span>Overview</span>
+        </a>
+        <a href="https://user.ordinarypeopleai.com/withdraw" class="flex items-center gap-2.5 px-3 py-2 rounded-xl transition text-slate-700 border border-transparent hover:bg-slate-300 hover:text-sky-600 hover:border-blue-100">
+          <span class="inline-flex items-center justify-center bg-[#bfe7ff] p-1 rounded-lg">
+            <img src="https://user.ordinarypeopleai.com/assets/images/menu/withdraw.webp" width="64" height="48" alt="Logo" class="w-8 h-8 object-contain">
+          </span>
+          <span>Withdraw</span>
+        </a>
+        <a href="https://user.ordinarypeopleai.com/tickets" class="flex items-center gap-2.5 px-3 py-2 rounded-xl transition text-slate-700 border border-transparent hover:bg-slate-300 hover:text-sky-600 hover:border-blue-100">
+          <span class="inline-flex items-center justify-center bg-[#bfe7ff] p-1 rounded-lg">
+            <img src="https://user.ordinarypeopleai.com/assets/images/menu/tickets.webp" width="64" height="48" alt="Logo" class="w-8 h-8 object-contain">
+          </span>
+          <span>Tickets</span>
+        </a>
+        <a href="https://user.ordinarypeopleai.com/promotion" class="flex items-center gap-2.5 px-3 py-2 rounded-xl transition text-slate-700 border border-transparent hover:bg-slate-300 hover:text-sky-600 hover:border-blue-100">
+          <span class="inline-flex items-center justify-center bg-[#bfe7ff] p-1 rounded-lg">
+            <img src="https://user.ordinarypeopleai.com/assets/images/menu/promotion.webp" width="64" height="48" alt="Logo" class="w-8 h-8 object-contain">
+          </span>
+          <span>Promotion</span>
+        </a>
+        <a href="https://user.ordinarypeopleai.com/logout" class="flex items-center gap-2.5 px-3 py-2 rounded-xl transition text-red-500 hover:bg-red-50 hover:text-red-600 border border-transparent">
+          <span class="inline-flex items-center justify-center bg-[#bfe7ff] p-1 rounded-lg">
+            <img src="https://user.ordinarypeopleai.com/assets/images/menu/logout.webp" width="64" height="48" alt="Logo" class="w-7 h-7 object-contain">
+          </span>
+          <span>Logout</span>
+        </a>
+      </nav>
+    </aside>
+    <div id="sidebarOverlay" class="fixed inset-0 bg-black/40 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden z-10"></div>
+  </header>
+  <main class="flex-1 pt-16 md:pt-[56px] md:ml-64 main-bgimg relative">
+    <img src="https://user.ordinarypeopleai.com/assets/images/diag-ascii.png" alt="Background" class="absolute top-14 left-0 w-full h-full object-cover -z-10 opacity-100">
+    <section class="min-h-screen py-8 bg-slate-50/50">
+      <div class="mx-auto max-w-[1400px] px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div class="space-y-5">
+            <div class="grid grid-cols-1 h-full">
+              <div class="col-span-1 grid grid-cols-1 h-full">
+                <h2 class="text-2xl font-semibold mb-4 text-slate-900 text-center">Profile</h2>
+                <div class="h-full relative p-4 md:p-6 rounded-2xl w-full mx-auto group overflow-hidden border border-slate-200 bg-white backdrop-blur-2xl shadow-[0_15px_40px_rgba(15,23,42,.10)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(59,130,246,0.20)]">
+                  <div class="pointer-events-none absolute inset-0 opacity-70">
+                    <div class="absolute -top-24 -left-24 w-64 h-64 bg-[var(--theme-skky-300)]/20 rounded-full blur-3xl"></div>
+                    <div class="absolute -bottom-24 -right-24 w-64 h-64 bg-blue-400/15 rounded-full blur-3xl"></div>
+                  </div>
+                  <form method="POST" action="https://user.ordinarypeopleai.com/profile" enctype="multipart/form-data" class="w-full relative z-10">
+                    <input type="hidden" name="_token" value="0VCDJ9qTsymQfEEOmwZdc2eEsjSEwVE84YS5ZR1s" autocomplete="off">
+                    <div class="flex items-center gap-4 mb-4">
+                      <div class="relative">
+                        <div class="w-20 h-20 rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-md ring-1 ring-[var(--theme-skky-400)]/20">
+                          <img id="profilePreview" src="https://user.ordinarypeopleai.com/assets/images/opai.webp" alt="Profile" class="w-full h-full object-cover">
+                        </div>
+                        <label for="profile_pic" class="absolute -bottom-2 -right-2 w-9 h-9 rounded-full cursor-pointer bg-[var(--theme-skky-600)] text-white flex items-center justify-center border border-[var(--theme-skky-500)] shadow-md hover:bg-sky-700 active:scale-95 transition">
+                          <svg class="w-4.5 h-4.5" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 7l1.2-2h3.6L15 7h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h2Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M12 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+                          </svg>
+                        </label>
+                        <input id="profile_pic" name="profile_pic" type="file" accept="image/*" class="hidden">
+                      </div>
+                      <div class="min-w-0">
+                        <h3 class="text-base sm:text-lg font-semibold text-slate-900 leading-tight truncate">
+                          <span id="profileNameText">OpAi</span>
+                        </h3>
+                        <div class="mt-2 flex flex-wrap items-center gap-2">
+                          <span class="inline-flex items-center gap-2 rounded-full bg-[var(--theme-skkky-50)] border border-[var(--theme-skky-200)] px-3 py-1 text-[11px] sm:text-xs font-medium text-[var(--theme-primary-text)]">
+                            <img src="https://user.ordinarypeopleai.com/assets/images/rank/emerald-rank.webp" alt="Rank" class="w-8 h-8 object-contain">
+                            Rank: <span class="font-semibold">-</span>
+                          </span>
+                          <span class="inline-flex gap-2 items-center rounded-full bg-emerald-50 px-2 py-2 text-[11px] text-emerald-700 border border-emerald-300">
+                            Vip Level: <span class="font-semibold text-slate-900">-</span>
+                          </span>
+                        </div>
+                        <p class="text-[11px] sm:text-xs text-slate-500 mt-2">JPG/PNG recommended - Max 2MB</p>
+                      </div>
+                    </div>
+                    <div class="mx-auto w-full space-y-4">
+                      <div class="text-left">
+                        <label for="name" class="block text-[11px] uppercase tracking-wide text-[var(--theme-high-text)] font-medium mb-2">Name</label>
+                        <div class="relative flex items-center p-3 rounded-lg gap-3 border border-slate-200 bg-white focus-within:border-[var(--theme-skky-400)] focus-within:ring-1 focus-within:ring-[var(--theme-[var(--theme-skky-100)])] focus-within:bg-[var(--theme-skkky-50)]/60 transition-colors">
+                          <input type="text" id="name" name="name" value="asd" placeholder="Enter Name" class="w-full bg-transparent text-slate-900 placeholder:text-slate-400 outline-none text-base [caret-color:#60a5fa]" required aria-describedby="hs-validation-name-success-helper">
+                          <div class="absolute inset-y-0 right-3 flex items-center pointer-events-none">
+                            <svg class="shrink-0 size-4 text-emerald-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                              <polyline points="20 6 9 17 4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="text-left">
+                        <label for="walletaddress" class="block text-[11px] uppercase tracking-wide text-[var(--theme-high-text)] font-medium mb-2">Wallet Address</label>
+                        <div class="relative flex items-center p-3 rounded-lg gap-3 border border-slate-200 bg-white focus-within:border-[var(--theme-skky-400)] focus-within:ring-1 focus-within:ring-[var(--theme-[var(--theme-skky-100)])] focus-within:bg-[var(--theme-skkky-50)]/60 transition-colors">
+                          <input type="text" id="wallet_address" name="wallet_address" value="" placeholder="Enter Wallet Address" class="w-full bg-transparent text-slate-900 placeholder:text-slate-400 outline-none text-base [caret-color:#60a5fa]" required aria-describedby="hs-validation-name-success-helper">
+                          <div class="absolute inset-y-0 right-3 flex items-center pointer-events-none">
+                            <svg class="shrink-0 size-4 text-emerald-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                              <polyline points="20 6 9 17 4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="text-left">
+                        <label for="email" class="block text-[11px] uppercase tracking-wide text-[var(--theme-high-text)] font-medium mb-2">Email</label>
+                        <div class="relative flex items-center p-3 rounded-lg gap-3 border border-slate-200 bg-white focus-within:border-[var(--theme-skky-400)] focus-within:ring-1 focus-within:ring-[var(--theme-[var(--theme-skky-100)])] focus-within:bg-[var(--theme-skkky-50)]/60 transition-colors">
+                          <input type="email" id="email" name="email" value="a@b.com" placeholder="Enter Email" class="w-full bg-transparent text-slate-900 placeholder:text-slate-400 outline-none text-base [caret-color:#60a5fa]" required aria-describedby="hs-validation-name-success-helper" disabled>
+                          <div class="absolute inset-y-0 right-3 flex items-center pointer-events-none">
+                            <svg class="shrink-0 size-4 text-emerald-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                              <polyline points="20 6 9 17 4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="text-left">
+                        <label for="phone" class="block text-[11px] uppercase tracking-wide text-[var(--theme-high-text)] font-medium mb-2">Mobile Number</label>
+                        <div class="relative flex items-center p-3 rounded-lg gap-3 border border-slate-200 bg-white focus-within:border-[var(--theme-skky-400)] focus-within:ring-1 focus-within:ring-[var(--theme-[var(--theme-skky-100)])] focus-within:bg-[var(--theme-skkky-50)]/60 transition-colors">
+                          <input type="text" id="phone" name="phone" value="" placeholder="Enter Mobile Number" class="w-full bg-transparent text-slate-900 placeholder:text-slate-400 outline-none text-base [caret-color:#60a5fa]" required aria-describedby="hs-validation-name-success-helper">
+                          <div class="absolute inset-y-0 right-3 flex items-center pointer-events-none">
+                            <svg class="shrink-0 size-4 text-emerald-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                              <polyline points="20 6 9 17 4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="text-left">
+                        <label for="telegram_username" class="block text-[11px] uppercase tracking-wide text-sky-600 font-medium mb-2">Telegram Username</label>
+                        <div class="relative flex items-center p-3 rounded-lg gap-3 border border-slate-200 bg-white focus-within:border-sky-400 focus-within:ring-1 focus-within:ring-sky-100 focus-within:bg-sky-50/60 transition-colors">
+                          <input type="text" id="telegram_username" name="telegram_username" value="saadimran88@gmail.com" placeholder="Enter Telegram Username" class="w-full bg-transparent text-slate-900 placeholder:text-slate-400 outline-none text-base [caret-color:#60a5fa]" required aria-describedby="hs-validation-name-success-helper cursor-no-drop" disabled>
+                          <div class="absolute inset-y-0 right-3 flex items-center pointer-events-none">
+                            <svg class="shrink-0 size-4 text-emerald-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                              <polyline points="20 6 9 17 4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="pt-2">
+                        <button type="submit" class="px-5 py-2.5 mx-auto flex items-center justify-center text-sm sm:text-base tracking-wide mt-4 rounded-lg border border-[var(--theme-skky-500)] bg-gradient-to-r from-[var(--theme-skky-500)] to-[var(--theme-skky-600)] text-white font-semibold shadow-[0_8px_20px_rgba(56,189,248,.35)] hover:shadow-[0_14px_28px_rgba(56,189,248,.45)] active:scale-95 transition-all duration-300 ease-out">
+                          <span>Update</span>
+                          <svg id="svg1-icon" class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+                            <path clip-rule="evenodd" fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"></path>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                  <div class="absolute inset-x-3 bottom-0 h-px bg-gradient-to-r from-transparent via-[var(--theme-skky-400)] to-transparent opacity-100"></div>
+                </div>
+              </div>
+            </div>
+            <div class="grid grid-cols-1 hidden gap-5 mt-5">
+              <div class="relative p-4 md:p-6 rounded-2xl w-full mx-auto group overflow-hidden border border-slate-200 bg-white backdrop-blur-2xl shadow-[0_15px_40px_rgba(15,23,42,.10)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(15,23,42,0.20)]">
+                <div class="pointer-events-none absolute inset-0 opacity-60">
+                  <div class="absolute -top-24 -right-24 w-64 h-64 bg-[var(--theme-skky-300)]/20 rounded-full blur-3xl"></div>
+                </div>
+                <div class="relative z-10 bg-white border border-slate-200 mb-4 p-4 rounded-xl flex items-center justify-between shadow-sm">
+                  <div class="flex flex-wrap sm:flex-nowrap items-center sm:space-x-3 w-full">
+                    <img src="https://user.ordinarypeopleai.com/assets/images/opai.webp" width="64" height="48" alt="Logo" class="w-12 h-auto object-contain">
+                    <div class="w-full mt-2 sm:mt-0">
+                      <h3 class="text-base mb-2 leading-none text-slate-900">OpAi Referral Link</h3>
+                      <div class="bg-slate-50 px-2 py-1 rounded flex items-center justify-between overflow-auto border border-slate-200">
+                        <span id="referral-link" class="text-xs truncate text-ellipsis overflow-auto text-slate-800" style="text-overflow: unset; overflow: auto;">https://OpAi.farm/register?sponser_code=E50C95</span>
+                        <button onclick="copyReferrallink(); showToast('success', 'Copied to clipboard!')" class="ml-2 pl-2 border-l border-slate-200 flex items-center justify-center">
+                          <svg class="w-6 h-6 min-w-6 min-h-6 ml-1" viewBox="0 0 1024 1024">
+                            <path fill="#38bdf8" d="M768 832a128 128 0 0 1-128 128H192A128 128 0 0 1 64 832V384a128 128 0 0 1 128-128v64a64 64 0 0 0-64 64v448a64 64 0 0 0 64 64h448a64 64 0 0 0 64-64h64z"></path>
+                            <path fill="#38bdf8" d="M384 128a64 64 0 0 0-64 64v448a64 64 0 0 0 64 64h448a64 64 0 0 0 64-64V192a64 64 0 0 0-64-64H384zm0-64h448a128 128 0 0 1 128 128v448a128 128 0 0 1-128 128H384a128 128 0 0 1-128-128V192A128 128 0 0 1 384 64z"></path>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <script>
+                  function copyReferrallink() {
+                    const linkElement = document.getElementById("referral-link");
+                    if (!linkElement) {
+                      console.error("Referral link element not found!");
+                      return;
+                    }
+                    const link = linkElement.innerText;
+                    navigator.clipboard.writeText(link).catch(() => {
+                      console.error("Failed to copy text!");
+                    });
+                  }
+                </script>
+                <form method="POST" action="https://user.ordinarypeopleai.com/profile" class="space-y-4 relative z-10">
+                  <input type="hidden" name="_token" value="0VCDJ9qTsymQfEEOmwZdc2eEsjSEwVE84YS5ZR1s" autocomplete="off">
+                  <div class="relative space-y-5">
+                    <div class="relative flex items-center p-3 rounded-lg gap-3 border border-slate-200 bg-white focus-within:border-[var(--theme-skky-400)] focus-within:ring-1 focus-within:ring-[var(--theme-[var(--theme-skky-100)])] focus-within:bg-[var(--theme-skkky-50)]/60 transition-colors">
+                      <svg class="w-6 h-6 min-w-6 min-h-6 text-slate-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="16" r="2" stroke="#0f172a" stroke-width="1.5"></circle>
+                        <path d="M6 10V8C6 7.65929 6.0284 7.32521 6.08296 7M18 10V8C18 4.68629 15.3137 2 12 2C10.208 2 8.59942 2.78563 7.5 4.03126" stroke="#0f172a" stroke-width="1.5" stroke-linecap="round"></path>
+                        <path d="M11 22H8C5.17157 22 3.75736 22 2.87868 21.1213C2 20.2426 2 18.8284 2 16C2 13.1716 2 11.7574 2.87868 10.8787C3.75736 10 5.17157 10 8 10H16C18.8284 10 20.2426 10 21.1213 10.8787C22 11.7574 22 13.1716 22 16C22 18.8284 22 20.2426 21.1213 21.1213C20.2426 22 18.8284 22 16 22H15" stroke="#0f172a" stroke-width="1.5" stroke-linecap="round"></path>
+                      </svg>
+                      <input type="password" name="old_password" id="old_password" placeholder="Old Password" required class="w-full bg-transparent text-slate-900 placeholder:text-slate-400 outline-none text-base [caret-color:#60a5fa]">
+                    </div>
+                    <div class="relative flex items-center p-3 rounded-lg gap-3 border border-slate-200 bg-white focus-within:border-[var(--theme-skky-400)] focus-within:ring-1 focus-within:ring-[var(--theme-[var(--theme-skky-100)])] focus-within:bg-[var(--theme-skkky-50)]/60 transition-colors">
+                      <svg class="w-6 h-6 min-w-6 min-h-6 text-slate-500" viewBox="0 0 24 24" fill="none">
+                        <path d="M21 13V8C21 6.89543 20.1046 6 19 6H5C3.89543 6 3 6.89543 3 8V14C3 15.1046 3.89543 16 5 16H12" stroke="#0f172a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M14.5 18.5L16.5 20.5L20.5 16.5" stroke="#0f172a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M12 11.01L12.01 10.9989" stroke="#0f172a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M16 11.01L16.01 10.9989" stroke="#0f172a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M8 11.01L8.01 10.9989" stroke="#0f172a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                      <input type="password" name="new_password" id="new_password" placeholder="New Password" required class="w-full bg-transparent text-slate-900 placeholder:text-slate-400 outline-none text-base [caret-color:#60a5fa]">
+                    </div>
+                    <div class="relative flex items-center p-3 rounded-lg gap-3 border border-slate-200 bg-white focus-within:border-[var(--theme-skky-400)] focus-within:ring-1 focus-within:ring-[var(--theme-[var(--theme-skky-100)])] focus-within:bg-[var(--theme-skkky-50)]/60 transition-colors">
+                      <svg class="w-6 h-6 min-w-6 min-h-6 text-slate-500" viewBox="0 0 24 24" fill="none">
+                        <path d="M21 13V8C21 6.89543 20.1046 6 19 6H5C3.89543 6 3 6.89543 3 8V14C3 15.1046 3.89543 16 5 16H12" stroke="#0f172a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M20.8789 16.9174C21.3727 17.2211 21.3423 17.9604 20.8337 18.0181L18.2671 18.309L17.1159 20.6213C16.8878 21.0795 16.1827 20.8552 16.0661 20.2873L14.8108 14.1713C14.7123 13.6913 15.1437 13.3892 15.561 13.646L20.8789 16.9174Z" stroke="#0f172a" stroke-width="1.5"></path>
+                        <path d="M12 11.01L12.01 10.9989" stroke="#0f172a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M16 11.01L16.01 10.9989" stroke="#0f172a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M8 11.01L8.01 10.9989" stroke="#0f172a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                      <input type="password" name="confirm_password" id="confirm_password" placeholder="Repeat password" required class="w-full bg-transparent text-slate-900 placeholder:text-slate-400 outline-none text-base [caret-color:#60a5fa]">
+                    </div>
+                  </div>
+                  <div class="pt-2">
+                    <button type="submit" class="px-5 py-2.5 mx-auto flex items-center justify-center text-sm sm:text-base tracking-wide mt-4 rounded-lg border border-[var(--theme-skky-500)] bg-gradient-to-r from-[var(--theme-skky-500)] to-[var(--theme-skky-600)] text-white font-semibold shadow-[0_8px_20px_rgba(56,189,248,.35)] hover:shadow-[0_14px_28px_rgba(56,189,248,.45)] active:scale-95 transition-all duration-300 ease-out">
+                      <span>Reset Password</span>
+                      <svg id="svg1-icon" class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+                        <path clip-rule="evenodd" fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-5 h-full max-h-[400px]">
+            <h2 class="text-2xl font-semibold mb-4 text-slate-900 text-center">Voting</h2>
+            <div class="grid grid-cols-1 h-full">
+              <div class="grid grid-cols-1 h-full">
+                <div class="relative p-4 md:p-6 rounded-2xl w-full mx-auto group overflow-hidden border border-slate-200 bg-white backdrop-blur-2xl shadow-[0_15px_40px_rgba(15,23,42,.10)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(59,130,246,0.20)] h-full">
+                  <div class="pointer-events-none absolute inset-0 opacity-70">
+                    <div class="absolute -top-24 -left-24 w-64 h-64 bg-[var(--theme-skky-300)]/20 rounded-full blur-3xl"></div>
+                    <div class="absolute -bottom-24 -right-24 w-64 h-64 bg-blue-400/15 rounded-full blur-3xl"></div>
+                  </div>
+                  <form method="POST" action="https://user.ordinarypeopleai.com/vote" enctype="multipart/form-data" class="w-full relative z-10">
+                    <input type="hidden" name="_token" value="0VCDJ9qTsymQfEEOmwZdc2eEsjSEwVE84YS5ZR1s" autocomplete="off">
+                    <div class="mx-auto w-full space-y-4">
+                      <div class="text-left">
+                        <label for="voting_user_id" class="block text-[11px] uppercase tracking-wide text-[var(--theme-high-text)] font-medium mb-2">Sponsor Code</label>
+                        <div class="relative flex items-center p-3 rounded-lg gap-3 border border-slate-200 bg-white focus-within:border-[var(--theme-skky-400)] focus-within:ring-1 focus-within:ring-[var(--theme-[var(--theme-skky-100)])] focus-within:bg-[var(--theme-skkky-50)]/60 transition-colors">
+                          <input type="text" id="voting_user_id" name="voting_user_id" value="1Q7TGNH" placeholder="Enter User Id" class="w-full bg-transparent text-slate-900 placeholder:text-slate-400 outline-none text-base [caret-color:#60a5fa]" required aria-describedby="hs-validation-name-success-helper">
+                          <div class="absolute inset-y-0 right-3 flex items-center pointer-events-none">
+                            <svg class="shrink-0 size-4 text-emerald-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                              <polyline points="20 6 9 17 4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="text-left">
+                        <label class="block text-[11px] uppercase tracking-wide text-[var(--theme-primary-text)] font-medium mb-2">LEADERSHIP CLUB</label>
+                        <div class="relative">
+                          <button type="button" onclick="toggleMultiSelect()" id="multiSelectBtn" class="w-full flex justify-between items-center p-3 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 cursor-pointer focus:ring-1 focus:ring-[var(--theme-skky-300)]">
+                            <span id="multiSelectText">Select options</span>
+                            <svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                          </button>
+                          <div id="multiSelectDropdown" class="hidden absolute z-20 mt-1 w-full bg-white border border-slate-200 rounded-lg shadow-lg p-2">
+                            <label class="flex items-center gap-2 p-2 cursor-pointer hover:bg-slate-100 rounded">
+                              <input type="checkbox" value="ACTIVE" class="multiSelectItem">
+                              <span>ACTIVE</span>
+                            </label>
+                            <label class="flex items-center gap-2 p-2 cursor-pointer hover:bg-slate-100 rounded">
+                              <input type="checkbox" value="HELPFULL" class="multiSelectItem">
+                              <span>HELPFULL</span>
+                            </label>
+                            <label class="flex items-center gap-2 p-2 cursor-pointer hover:bg-slate-100 rounded">
+                              <input type="checkbox" value="HONEST" class="multiSelectItem">
+                              <span>HONEST</span>
+                            </label>
+                          </div>
+                          <input type="hidden" name="leadership_club" id="leadership_club_input">
+                        </div>
+                      </div>
+                      <div class="pt-2">
+                        <button type="submit" class="px-5 py-2.5 mx-auto flex items-center justify-center text-sm sm:text-base tracking-wide mt-4 rounded-lg border border-[var(--theme-skky-500)] bg-gradient-to-r from-[var(--theme-skky-500)] to-[var(--theme-skky-600)] text-white font-semibold shadow-[0_8px_20px_rgba(56,189,248,.35)] hover:shadow-[0_14px_28px_rgba(56,189,248,.45)] active:scale-95 transition-all duration-300 ease-out">
+                          <span>Vote</span>
+                          <svg id="svg1-icon" class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+                            <path clip-rule="evenodd" fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"></path>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                  <div class="absolute inset-x-3 bottom-0 h-px bg-gradient-to-r from-transparent via-[var(--theme-skky-400)] to-transparent opacity-100"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="text-black py-6 border-t border-slate-500 bg-[#F5F7FC] md:ml-64">
+    <div class="mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center text-center">
+        <div class="text-center mb-4 md:mb-0">
+          <p>&copy; 2025 <span class="text-[var(--theme-high-text)] text-xl font-bold">OpAi</span> All rights reserved.</p>
+        </div>
+        <div class="flex gap-1 mx-auto sm:mx-0">
+          <a href="#" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg opacity-85 hover:opacity-100">
+            <img src="https://user.ordinarypeopleai.com/assets/images/instagram.svg" alt="instagram" class="w-auto h-7 hover:-rotate-[25deg] transition-transform duration-300 ease-in-out invert">
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg opacity-85 hover:opacity-100">
+            <img src="https://user.ordinarypeopleai.com/assets/images/telegram.svg" alt="telegram" class="w-auto h-7 hover:-rotate-[25deg] transition-transform duration-300 ease-in-out invert">
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg opacity-85 hover:opacity-100">
+            <img src="https://user.ordinarypeopleai.com/assets/images/facebook.svg" alt="facebook" class="w-auto h-7 hover:-rotate-[25deg] transition-transform duration-300 ease-in-out ">
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg opacity-85 hover:opacity-100">
+            <img src="https://user.ordinarypeopleai.com/assets/images/youtube.svg" alt="youtube" class="w-auto h-8 hover:-rotate-[25deg] transition-transform duration-300 ease-in-out ">
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+document.addEventListener('DOMContentLoaded', function () {
+  function updateMultiSelectState() {
+    const checkedItems = Array.from(document.querySelectorAll(".multiSelectItem:checked"));
+    const selected = checkedItems.map(i => i.value);
+    document.getElementById("leadership_club_input").value = JSON.stringify(selected);
+    document.getElementById("multiSelectText").innerText = selected.length ? selected.join(", ") : "Select options";
+  }
+  window.toggleMultiSelect = function () {
+    document.getElementById("multiSelectDropdown").classList.toggle("hidden");
+  }
+  document.querySelectorAll(".multiSelectItem").forEach(item => {
+    item.addEventListener("change", updateMultiSelectState);
+  });
+  updateMultiSelectState();
+  document.addEventListener("click", (e) => {
+    const btn = document.getElementById("multiSelectBtn");
+    const dd  = document.getElementById("multiSelectDropdown");
+    if (!btn.contains(e.target) && !dd.contains(e.target)) {
+      dd.classList.add("hidden");
+    }
+  });
+});
+</script>
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const sidebar = document.getElementById('sidebar');
+  const sidebarOverlay = document.getElementById('sidebarOverlay');
+  const menuToggle = document.getElementById('menuToggle');
+  const closeOnClickEls = [sidebarOverlay, ...sidebar.querySelectorAll('a')];
+  const openSidebar = () => {
+    sidebar.classList.remove('-translate-x-full');
+    sidebarOverlay.classList.remove('pointer-events-none');
+    sidebarOverlay.classList.add('opacity-100');
+  };
+  const closeSidebar = () => {
+    sidebar.classList.add('-translate-x-full');
+    sidebarOverlay.classList.add('pointer-events-none');
+    sidebarOverlay.classList.remove('opacity-100');
+  };
+  if (menuToggle) {
+    menuToggle.addEventListener('click', openSidebar);
+  }
+  closeOnClickEls.forEach(el => {
+    if (!el) return;
+    el.addEventListener('click', closeSidebar);
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeSidebar();
+    }
+  });
+});
+</script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"19ade67eac544d6ea52684e9f057902e","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+  <script>
+var notyf = new Notyf({
+  duration: 3000,
+  dismissible: true,
+  position: {
+    x: 'right',
+    y: 'top'
+  },
+  ripple: false,
+  types: [
+    { type: 'success', background: 'green' },
+    { type: 'error', background: 'red' },
+    { type: 'warning', background: 'orange' },
+    { type: 'info', background: 'blue' }
+  ]
+});
+function showToast(type, message) {
+  const input = message || "";
+  if (type === 'success') {
+    notyf.success(input);
+  } else if (type === 'error') {
+    notyf.error(input);
+  } else {
+    notyf.open({ type, message: input });
+  }
+}
+</script>
+</body>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const pathname = window.location.pathname;
+  const segments = pathname.split('/').filter(Boolean);
+  const lastSegment = segments.at(-1);
+  if (lastSegment === 'pay-topup') {
+    document.getElementById("depositForm").addEventListener("submit", function (e) {
+      const depositamount = document.getElementById("amount").value.trim();
+      const allowedAmounts = [5, 10, 25, 50];
+      const numericValue = parseFloat(depositamount);
+      const isCorrect = allowedAmounts.includes(numericValue);
+      if (!isCorrect) {
+        e.preventDefault();
+        showToast("error", "Valid packages are 5, 10, 25 & 50");
+      }
+    });
+  } else if (lastSegment === 'pay-qr') {
+    document.getElementById("qrpayForm").addEventListener("submit", function (e) {
+      const qramount = document.getElementById("amount").value.trim();
+      const allowedAmounts = [5, 10, 25, 50];
+      const numericValue = parseFloat(qramount);
+      const isCorrect = allowedAmounts.includes(numericValue);
+      if (!isCorrect) {
+        e.preventDefault();
+        showToast("error", "Valid package amounts are 5, 10, 25 & 50");
+      }
+    });
+  }
+});
+</script>
+</html>
