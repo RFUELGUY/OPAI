@@ -1052,7 +1052,7 @@ export default function Dashboard({ section }: { section?: SectionKey }) {
         {[
           { ...navItems.find((n) => n.section === "stats")! },
           { ...navItems.find((n) => n.section === "dashboard")!, emphasize: true },
-          { ...navItems.find((n) => n.section === "team")! },
+          { ...navItems.find((n) => n.section === "wallet")! },
           { ...navItems.find((n) => n.section === "tether")!, label: "Top Up" },
         ].map((item) => {
           const active = activeSection === item.section;
@@ -1071,7 +1071,7 @@ export default function Dashboard({ section }: { section?: SectionKey }) {
               >
                 <item.icon className={`${item.emphasize ? "w-6 h-6" : "w-5 h-5"} ${active ? "text-primary" : "text-slate-500"}`} />
               </div>
-              <span className={`truncate ${item.emphasize ? "text-[12px]" : ""}`}>{item.label}</span>
+              <span className={`truncate ${item.emphasize ? "text-[12px]" : "text-[10px]"}`}>{item.label}</span>
             </button>
           );
         })}
@@ -1124,7 +1124,9 @@ export default function Dashboard({ section }: { section?: SectionKey }) {
             </div>
           </header>
 
-          <div className="p-6 space-y-6 max-w-full overflow-x-hidden pb-24 lg:pb-10">{renderSection()}</div>
+          <div className="px-4 py-5 sm:p-6 space-y-5 sm:space-y-6 max-w-full overflow-x-hidden pb-24 lg:pb-10">
+            {renderSection()}
+          </div>
         </main>
       </div>
 
