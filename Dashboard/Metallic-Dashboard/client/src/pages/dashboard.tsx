@@ -788,7 +788,7 @@ export default function Dashboard({ section }: { section?: SectionKey }) {
 
           <Card className="rounded-2xl border border-slate-200 shadow-md bg-white">
             <CardHeader>
-              <CardTitle className="text-base">Package Cheatsheet</CardTitle>
+              <CardTitle className="text-base">Courses Cheatsheet</CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
                   {earningPlans.map((plan) => (
