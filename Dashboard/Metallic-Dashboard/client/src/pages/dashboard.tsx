@@ -335,22 +335,24 @@ export default function Dashboard({ section }: { section?: SectionKey }) {
       <div className="grid gap-4 lg:grid-cols-3">
         {/* Referral */}
         <Card className="rounded-2xl border border-slate-200 shadow-md bg-white">
-          <CardContent className="p-4 flex gap-3 items-center">
-            <div className="w-12 h-12 rounded-xl border border-slate-200 bg-slate-50 flex items-center justify-center text-primary font-bold shadow-sm">
+          <CardContent className="p-3 sm:p-4 flex flex-col sm:flex-row gap-3 sm:items-center">
+            <div className="w-12 h-12 rounded-xl border border-slate-200 bg-slate-50 flex items-center justify-center text-primary font-bold shadow-sm self-start">
               OPAI
             </div>
             <div className="flex-1 space-y-2">
               <p className="text-xs font-semibold text-slate-600">OpAi Referral Link</p>
-              <div className="flex items-center gap-2">
-                <div className="flex-1 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs font-mono text-slate-800 overflow-hidden text-ellipsis">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+                <div className="flex-1 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-[11px] sm:text-xs font-mono text-slate-800 overflow-hidden text-ellipsis">
                   {referralLink}
                 </div>
-                <Button size="icon" variant="outline" className="h-8 w-8" onClick={() => copyValue(referralLink, "Referral link")}>
-                  <Copy className="w-4 h-4" />
-                </Button>
-                <Button size="icon" variant="outline" className="h-8 w-8" onClick={() => shareLink(referralLink, "OpAi Referral")}>
-                  <Share2 className="w-4 h-4" />
-                </Button>
+                <div className="flex gap-2">
+                  <Button size="icon" variant="outline" className="h-9 w-9 sm:h-8 sm:w-8" onClick={() => copyValue(referralLink, "Referral link")}>
+                    <Copy className="w-4 h-4" />
+                  </Button>
+                  <Button size="icon" variant="outline" className="h-9 w-9 sm:h-8 sm:w-8" onClick={() => shareLink(referralLink, "OpAi Referral")}>
+                    <Share2 className="w-4 h-4" />
+                  </Button>
+                </div>
               </div>
             </div>
           </CardContent>
@@ -1048,9 +1050,10 @@ export default function Dashboard({ section }: { section?: SectionKey }) {
 
   const renderMobileNav = () => (
     <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-30 bg-white/95 border-t border-slate-200 shadow-[0_-4px_12px_rgba(0,0,0,0.06)] backdrop-blur">
-      <div className="grid grid-cols-4">
+      <div className="grid grid-cols-5">
         {[
           { ...navItems.find((n) => n.section === "stats")! },
+          { ...navItems.find((n) => n.section === "team")!, label: "Extended" },
           { ...navItems.find((n) => n.section === "dashboard")!, emphasize: true },
           { ...navItems.find((n) => n.section === "wallet")! },
           { ...navItems.find((n) => n.section === "tether")!, label: "Top Up" },
@@ -1066,7 +1069,7 @@ export default function Dashboard({ section }: { section?: SectionKey }) {
             >
               <div
                 className={`flex items-center justify-center rounded-full ${
-                  item.emphasize ? "w-12 h-12 bg-primary/10" : "w-9 h-9"
+                  item.emphasize ? "w-12 h-12 bg-primary/10 -translate-y-2 shadow-lg" : "w-9 h-9"
                 }`}
               >
                 <item.icon className={`${item.emphasize ? "w-6 h-6" : "w-5 h-5"} ${active ? "text-primary" : "text-slate-500"}`} />
