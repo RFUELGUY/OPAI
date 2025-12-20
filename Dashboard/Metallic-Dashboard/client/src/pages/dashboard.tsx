@@ -1049,7 +1049,12 @@ export default function Dashboard({ section }: { section?: SectionKey }) {
   const renderMobileNav = () => (
     <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-30 bg-white/95 border-t border-slate-200 shadow-[0_-4px_12px_rgba(0,0,0,0.06)] backdrop-blur">
       <div className="grid grid-cols-4">
-        {navItems.map((item) => {
+        {[
+          { ...navItems.find((n) => n.section === "stats")! },
+          { ...navItems.find((n) => n.section === "dashboard")!, emphasize: true },
+          { ...navItems.find((n) => n.section === "team")! },
+          { ...navItems.find((n) => n.section === "tether")!, label: "Top Up" },
+        ].map((item) => {
           const active = activeSection === item.section;
           return (
             <button
@@ -1059,8 +1064,14 @@ export default function Dashboard({ section }: { section?: SectionKey }) {
                 active ? "text-primary" : "text-slate-500"
               }`}
             >
-              <item.icon className={`w-5 h-5 ${active ? "text-primary" : "text-slate-500"}`} />
-              <span className="truncate">{item.label}</span>
+              <div
+                className={`flex items-center justify-center rounded-full ${
+                  item.emphasize ? "w-12 h-12 bg-primary/10" : "w-9 h-9"
+                }`}
+              >
+                <item.icon className={`${item.emphasize ? "w-6 h-6" : "w-5 h-5"} ${active ? "text-primary" : "text-slate-500"}`} />
+              </div>
+              <span className={`truncate ${item.emphasize ? "text-[12px]" : ""}`}>{item.label}</span>
             </button>
           );
         })}
