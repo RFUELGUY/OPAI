@@ -74,8 +74,8 @@ const navItems: { icon: any; label: string; path: string; section: SectionKey }[
   { icon: TrendingUp, label: "Stats", path: "/stats", section: "stats" },
   { icon: Zap, label: "Pay By QR", path: "/qr", section: "qr" },
   { icon: DollarSign, label: "Pay By Topup", path: "/tether", section: "tether" },
-  { icon: Target, label: "Directs", path: "/directs", section: "directs" },
-  { icon: Users, label: "Team", path: "/team", section: "team" },
+  { icon: Target, label: "My Circle", path: "/directs", section: "directs" },
+  { icon: Users, label: "Extended Circle", path: "/team", section: "team" },
   { icon: Trophy, label: "Genealogy", path: "/genealogy", section: "genealogy" },
   { icon: BarChart3, label: "Overview", path: "/overview", section: "overview" },
 ];
@@ -814,16 +814,16 @@ export default function Dashboard({ section }: { section?: SectionKey }) {
 
   const renderDirectsSection = () => (
     <div className="space-y-6">
-      <SectionHeader title="Directs" subtitle="Core circle performance from your personally invited members." />
+      <SectionHeader title="My Circle" subtitle="Core circle performance from your personally invited members." />
       <Card className="rounded-2xl border border-slate-200 shadow-md bg-white">
         <CardHeader>
           <CardTitle className="text-base">Snapshot</CardTitle>
         </CardHeader>
         <CardContent className="grid md:grid-cols-3 gap-3">
           {[
-            { label: "Directs", value: "3", icon: Users },
-            { label: "Direct Volume", value: "$75", icon: Wallet },
-            { label: "Direct Rewards", value: "$12.25", icon: Gift },
+            { label: "My Circle", value: "3", icon: Users },
+            { label: "My Circle Volume", value: "$75", icon: Wallet },
+            { label: "My Circle Rewards", value: "$12.25", icon: Gift },
           ].map((item) => (
             <div key={item.label} className="p-3 rounded-lg border border-slate-200 bg-slate-50/70 flex items-center gap-3">
               <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-blue-500 text-white flex items-center justify-center">
@@ -840,7 +840,7 @@ export default function Dashboard({ section }: { section?: SectionKey }) {
 
       <Card className="rounded-2xl border border-slate-200 shadow-md bg-white">
         <CardHeader>
-          <CardTitle className="text-base">Directs by VIP track</CardTitle>
+          <CardTitle className="text-base">My Circle by VIP track</CardTitle>
         </CardHeader>
         <CardContent className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
           {vipStars.map((vip) => (
@@ -852,7 +852,7 @@ export default function Dashboard({ section }: { section?: SectionKey }) {
                 <Star className="w-4 h-4 text-amber-500" />
               </div>
               <p className="text-sm font-semibold text-slate-900 mt-2">{vip.directs} directs</p>
-              <p className="text-xs text-slate-600">Team volume: {vip.team.toLocaleString()}</p>
+              <p className="text-xs text-slate-600">Extended Circle volume: {vip.team.toLocaleString()}</p>
               <p className="text-xs text-slate-600">Points target: {vip.points}</p>
             </div>
           ))}
@@ -863,11 +863,11 @@ export default function Dashboard({ section }: { section?: SectionKey }) {
 
   const renderTeamSection = () => (
     <div className="space-y-6">
-      <SectionHeader title="Team" subtitle="Extended circle contributions and roles." />
+      <SectionHeader title="Extended Circle" subtitle="Extended circle contributions and roles." />
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {[
           { label: "Extended Members", value: "12", icon: Users },
-          { label: "Team Volume", value: "$540", icon: Wallet },
+          { label: "Extended Circle Volume", value: "$540", icon: Wallet },
           { label: "Average Ticket", value: "$45", icon: Gift },
           { label: "Countries", value: "4", icon: Globe2 },
           { label: "Active Today", value: "7", icon: TrendingUp },
