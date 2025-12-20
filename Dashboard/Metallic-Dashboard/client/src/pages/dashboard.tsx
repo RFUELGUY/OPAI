@@ -1045,6 +1045,29 @@ export default function Dashboard({ section }: { section?: SectionKey }) {
         return renderDashboardSection();
     }
   };
+
+  const renderMobileNav = () => (
+    <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-30 bg-white/95 border-t border-slate-200 shadow-[0_-4px_12px_rgba(0,0,0,0.06)] backdrop-blur">
+      <div className="grid grid-cols-4">
+        {navItems.map((item) => {
+          const active = activeSection === item.section;
+          return (
+            <button
+              key={item.label}
+              onClick={() => goTo(item.path)}
+              className={`flex flex-col items-center justify-center gap-1 py-3 text-[11px] font-semibold transition-colors ${
+                active ? "text-primary" : "text-slate-500"
+              }`}
+            >
+              <item.icon className={`w-5 h-5 ${active ? "text-primary" : "text-slate-500"}`} />
+              <span className="truncate">{item.label}</span>
+            </button>
+          );
+        })}
+      </div>
+    </nav>
+  );
+
   return (
     <div className="min-h-screen font-sans bg-white relative overflow-hidden">
       <div
@@ -1090,9 +1113,11 @@ export default function Dashboard({ section }: { section?: SectionKey }) {
             </div>
           </header>
 
-          <div className="p-6 space-y-6 max-w-full overflow-x-hidden">{renderSection()}</div>
+          <div className="p-6 space-y-6 max-w-full overflow-x-hidden pb-24 lg:pb-10">{renderSection()}</div>
         </main>
       </div>
+
+      {renderMobileNav()}
     </div>
   );
 }
