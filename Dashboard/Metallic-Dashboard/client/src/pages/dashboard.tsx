@@ -45,6 +45,7 @@ import {
   levelData,
   referralLink,
   vipStars,
+  walletSummary,
 } from "@/lib/data";
 
 type SectionKey =
@@ -52,6 +53,7 @@ type SectionKey =
   | "dashboard"
   | "stats"
   | "qr"
+  | "wallet"
   | "tether"
   | "directs"
   | "team"
@@ -72,6 +74,7 @@ const navItems: { icon: any; label: string; path: string; section: SectionKey }[
   { icon: LayoutDashboard, label: "Dashboard", path: "/", section: "dashboard" },
   { icon: Users, label: "Profile", path: "/profile", section: "profile" },
   { icon: TrendingUp, label: "Stats", path: "/stats", section: "stats" },
+  { icon: Wallet, label: "Wallets", path: "/wallet", section: "wallet" },
   { icon: Zap, label: "Pay By QR", path: "/qr", section: "qr" },
   { icon: DollarSign, label: "Pay By Topup", path: "/tether", section: "tether" },
   { icon: Target, label: "My Circle", path: "/directs", section: "directs" },
@@ -191,14 +194,14 @@ export default function Dashboard({ section }: { section?: SectionKey }) {
       if (!allowedPackages.includes(amount as any)) {
         toast({
           title: "Pick a valid package",
-          description: "Valid packages are 5, 10, 25 and 50 USDT.",
+          description: "Valid packages are 5, 10, 25 and 50 OP CREDITS.",
           variant: "destructive",
         });
         return;
       }
       toast({
         title: `${type === "qr" ? "QR" : "Topup"} request staged`,
-        description: `We logged your ${amount} USDT intent. Submit proof in app when ready.`,
+        description: `We logged your ${amount} OP CREDITS intent. Submit proof in app when ready.`,
       });
     };
   };
@@ -310,7 +313,7 @@ export default function Dashboard({ section }: { section?: SectionKey }) {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-slate-600">Net:</span>
-                  <span className="font-bold text-slate-900">${level.netWorth}</span>
+                  <span className="font-bold text-slate-900">OP {level.netWorth}</span>
                 </div>
                 {!level.unlocked && (
                   <div className="pt-2 border-t border-slate-200">
@@ -353,10 +356,10 @@ export default function Dashboard({ section }: { section?: SectionKey }) {
           </CardContent>
         </Card>
 
-        {/* Badges */}
+        {/* Honors */}
         <Card className="rounded-2xl border border-slate-200 shadow-md bg-white">
           <CardContent className="p-4">
-            <p className="text-xs font-semibold text-slate-600 mb-3">Badges</p>
+            <p className="text-xs font-semibold text-slate-600 mb-3">Honors</p>
             <div className="grid grid-cols-3 gap-3">
               {badgeCounts.map((badge) => (
                 <div key={badge.label} className="flex flex-col items-center gap-1 rounded-lg border border-slate-200 bg-slate-50 p-3 shadow-sm">
@@ -402,7 +405,7 @@ export default function Dashboard({ section }: { section?: SectionKey }) {
   const renderBadgePanel = () => (
     <Card className="rounded-3xl border border-slate-200 shadow-lg bg-white overflow-hidden">
       <CardHeader className="pb-4 border-b border-slate-100 bg-slate-50">
-        <Badge className="bg-primary text-white w-fit mb-2">BADGE RANK</Badge>
+        <Badge className="bg-primary text-white w-fit mb-2">HONOR RANK</Badge>
         <h3 className="text-lg font-heading font-bold text-slate-900">Current Achievement</h3>
       </CardHeader>
       <CardContent className="p-6 space-y-5">
@@ -466,7 +469,7 @@ export default function Dashboard({ section }: { section?: SectionKey }) {
   const renderBadgeRank = () => (
     <Card className="rounded-3xl border border-slate-200 shadow-lg bg-white overflow-hidden">
       <CardHeader className="pb-4 border-b border-slate-100 bg-slate-50">
-        <Badge className="bg-primary text-white w-fit mb-2">BADGE RANK</Badge>
+        <Badge className="bg-primary text-white w-fit mb-2">HONOR RANK</Badge>
         <h3 className="text-lg font-heading font-bold text-slate-900">Current Achievement</h3>
       </CardHeader>
       <CardContent className="p-6">
@@ -576,7 +579,7 @@ export default function Dashboard({ section }: { section?: SectionKey }) {
         {[
           { icon: TrendingUp, label: "Referrals", value: "3", color: "from-blue-400 to-blue-600" },
           { icon: Users, label: "Extended Circle Size", value: "12", color: "from-emerald-400 to-emerald-600" },
-          { icon: Wallet, label: "Total Rewards", value: "$1,775", color: "from-purple-400 to-purple-600" },
+          { icon: Wallet, label: "Total Rewards", value: "OP 1,775", color: "from-purple-400 to-purple-600" },
           { icon: Trophy, label: "Active Level", value: "2", color: "from-orange-400 to-orange-600" },
         ].map((stat, i) => (
           <Card
@@ -668,7 +671,7 @@ export default function Dashboard({ section }: { section?: SectionKey }) {
 
         <Card className="rounded-2xl border border-slate-200 shadow-md bg-white">
           <CardHeader className="pb-2">
-            <CardTitle className="text-base">Badges</CardTitle>
+          <CardTitle className="text-base">Honors</CardTitle>
           </CardHeader>
           <CardContent className="space-y-2">
             <div className="flex gap-2 flex-wrap">
@@ -717,14 +720,14 @@ export default function Dashboard({ section }: { section?: SectionKey }) {
     const description =
       type === "qr"
         ? "Scan-to-pay instructions. Only valid packages are accepted."
-        : "Send USDT (TRC20) using the package options listed.";
+        : "Send OP CREDITS using the package options listed.";
 
     return (
       <div className="space-y-6">
         <SectionHeader
           title={title}
           subtitle={description}
-          extra={<Badge variant="outline" className="text-xs">Allowed: {allowedPackages.join(", ")} USDT</Badge>}
+          extra={<Badge variant="outline" className="text-xs">Allowed: {allowedPackages.join(", ")} OP CREDITS</Badge>}
         />
         <div className="grid gap-4 lg:grid-cols-3">
           <Card className="rounded-2xl border border-slate-200 shadow-md bg-white lg:col-span-2">
@@ -734,7 +737,7 @@ export default function Dashboard({ section }: { section?: SectionKey }) {
             <CardContent>
               <form className="space-y-4" onSubmit={handlePaySubmit(type)}>
                 <div className="space-y-2">
-                  <label className="text-xs font-semibold text-slate-700">Amount (USDT)</label>
+                  <label className="text-xs font-semibold text-slate-700">Amount (OP CREDITS)</label>
                   <Input
                     type="number"
                     min={0}
@@ -753,7 +756,7 @@ export default function Dashboard({ section }: { section?: SectionKey }) {
                         className="text-xs"
                         onClick={() => setPayAmounts((prev) => ({ ...prev, [type]: String(pkg) }))}
                       >
-                        {pkg} USDT
+                        {pkg} OP CREDITS
                       </Button>
                     ))}
                   </div>
@@ -788,23 +791,89 @@ export default function Dashboard({ section }: { section?: SectionKey }) {
               <CardTitle className="text-base">Package Cheatsheet</CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
-              {earningPlans.map((plan) => (
-                <div key={plan.code} className="p-3 rounded-lg border border-slate-200 bg-slate-50/70">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <Badge variant="outline" className="text-[11px]">
-                        {plan.code}
-                      </Badge>
-                      <span className="text-xs text-slate-600">Min {plan.min} USDT</span>
-                    </div>
-                    <div className="text-right">
-                      <p className="text-[11px] text-slate-500">Potential</p>
-                      <p className="text-sm font-semibold text-primary">{plan.totalPotential.toLocaleString()}</p>
-                    </div>
+                  {earningPlans.map((plan) => (
+                    <div key={plan.code} className="p-3 rounded-lg border border-slate-200 bg-slate-50/70">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <Badge variant="outline" className="text-[11px]">
+                            {plan.code}
+                          </Badge>
+                          <span className="text-xs text-slate-600">Min {plan.min} OP CREDITS</span>
+                        </div>
+                        <div className="text-right">
+                          <p className="text-[11px] text-slate-500">Potential</p>
+                          <p className="text-sm font-semibold text-primary">{plan.totalPotential.toLocaleString()}</p>
+                        </div>
                   </div>
                 </div>
               ))}
               <p className="text-xs text-slate-600">Totals mirror the earning tables in the PDF; live payouts depend on official approvals.</p>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    );
+  };
+
+  const renderWalletSection = () => {
+    const { main, topup, token } = walletSummary;
+
+    return (
+      <div className="space-y-6">
+        <SectionHeader
+          title="Wallets"
+          subtitle="Track balances across your cash wallets and token holdings (OPPERKS / OP CREDITS)."
+        />
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {[main, topup].map((wallet) => (
+            <Card key={wallet.label} className="rounded-2xl border border-slate-200 shadow-md bg-white">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-base flex items-center justify-between">
+                  <span>{wallet.label}</span>
+                  <Badge variant="outline" className="text-[11px] uppercase">
+                    {wallet.currency}
+                  </Badge>
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-2">
+                <p className="text-2xl font-heading font-bold text-slate-900">
+                  {wallet.currency} {wallet.balance.toLocaleString(undefined, { minimumFractionDigits: 2 })}
+                </p>
+                <p className="text-xs text-slate-600">{wallet.note}</p>
+              </CardContent>
+            </Card>
+          ))}
+
+          <Card className="rounded-2xl border border-slate-200 shadow-md bg-white lg:col-span-1">
+            <CardHeader className="pb-2">
+              <CardTitle className="text-base flex items-center justify-between">
+                <span>{token.label}</span>
+                <Badge className="text-[11px]">OPPERKS</Badge>
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-3">
+              <div className="flex items-center justify-between gap-3">
+                <div>
+                  <p className="text-xs text-slate-600">Token balance</p>
+                  <p className="text-xl font-heading font-bold text-primary">
+                    {token.tokenBalance.toLocaleString()} {token.tokenUnit}
+                  </p>
+                </div>
+                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-blue-500 text-white flex items-center justify-center shadow-md">
+                  <Wallet className="w-5 h-5" />
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                <div className="p-3 rounded-lg border border-slate-200 bg-slate-50/80">
+                  <p className="text-[11px] text-slate-600 font-semibold">OPPERKS</p>
+                  <p className="text-sm font-semibold text-slate-900">{token.tokenBalance.toLocaleString()}</p>
+                </div>
+                <div className="p-3 rounded-lg border border-slate-200 bg-slate-50/80">
+                  <p className="text-[11px] text-slate-600 font-semibold">{token.pointsLabel}</p>
+                  <p className="text-sm font-semibold text-slate-900">{token.creditAmount.toLocaleString()}</p>
+                </div>
+              </div>
+              <p className="text-xs text-slate-600">{token.note}</p>
             </CardContent>
           </Card>
         </div>
@@ -822,8 +891,8 @@ export default function Dashboard({ section }: { section?: SectionKey }) {
         <CardContent className="grid md:grid-cols-3 gap-3">
           {[
             { label: "My Circle", value: "3", icon: Users },
-            { label: "My Circle Volume", value: "$75", icon: Wallet },
-            { label: "My Circle Rewards", value: "$12.25", icon: Gift },
+            { label: "My Circle Volume", value: "OP 75", icon: Wallet },
+            { label: "My Circle Rewards", value: "OP 12.25", icon: Gift },
           ].map((item) => (
             <div key={item.label} className="p-3 rounded-lg border border-slate-200 bg-slate-50/70 flex items-center gap-3">
               <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-blue-500 text-white flex items-center justify-center">
@@ -853,7 +922,7 @@ export default function Dashboard({ section }: { section?: SectionKey }) {
               </div>
               <p className="text-sm font-semibold text-slate-900 mt-2">{vip.directs} directs</p>
               <p className="text-xs text-slate-600">Extended Circle volume: {vip.team.toLocaleString()}</p>
-              <p className="text-xs text-slate-600">Points target: {vip.points}</p>
+              <p className="text-xs text-slate-600">OP CREDITS target: {vip.points}</p>
             </div>
           ))}
         </CardContent>
@@ -867,8 +936,8 @@ export default function Dashboard({ section }: { section?: SectionKey }) {
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {[
           { label: "Extended Members", value: "12", icon: Users },
-          { label: "Extended Circle Volume", value: "$540", icon: Wallet },
-          { label: "Average Ticket", value: "$45", icon: Gift },
+          { label: "Extended Circle Volume", value: "OP 540", icon: Wallet },
+          { label: "Average Ticket", value: "OP 45", icon: Gift },
           { label: "Countries", value: "4", icon: Globe2 },
           { label: "Active Today", value: "7", icon: TrendingUp },
           { label: "Pending KYC", value: "1", icon: ShieldCheck },
@@ -959,6 +1028,8 @@ export default function Dashboard({ section }: { section?: SectionKey }) {
         return renderPaySection("qr");
       case "tether":
         return renderPaySection("tether");
+      case "wallet":
+        return renderWalletSection();
       case "directs":
         return renderDirectsSection();
       case "team":

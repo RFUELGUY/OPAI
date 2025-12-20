@@ -12,6 +12,7 @@ function Router() {
       <Route path="/" component={() => <Dashboard section="dashboard" />} />
       <Route path="/profile" component={() => <Dashboard section="profile" />} />
       <Route path="/stats" component={() => <Dashboard section="stats" />} />
+      <Route path="/wallet" component={() => <Dashboard section="wallet" />} />
       <Route path="/qr" component={() => <Dashboard section="qr" />} />
       <Route path="/tether" component={() => <Dashboard section="tether" />} />
       <Route path="/directs" component={() => <Dashboard section="directs" />} />

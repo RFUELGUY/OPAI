@@ -47,3 +47,21 @@ export const levelData = [
   { level: 4, bonus: "4.0%", network: 80, netWorth: 16, referralsNeeded: 4, unlocked: false },
   { level: 5, bonus: "3.0%", network: 160, netWorth: 24, referralsNeeded: 5, unlocked: false },
 ];
+
+export const walletSummary = {
+  main: { label: "Main Wallet", balance: 125.75, currency: "OP CREDITS", note: "Withdrawable rewards and rebates." },
+  topup: {
+    label: "Topup Wallet",
+    balance: 40,
+    currency: "OP CREDITS",
+    note: "Reserved for activating packages and renewals.",
+  },
+  token: {
+    label: "Token Wallet",
+    tokenBalance: 1850,
+    tokenUnit: "OPPERKS",
+    creditAmount: 37000,
+    pointsLabel: "OP CREDITS",
+    note: "Earned OPPERKS convertible into OP CREDITS for ecosystem perks.",
+  },
+};
