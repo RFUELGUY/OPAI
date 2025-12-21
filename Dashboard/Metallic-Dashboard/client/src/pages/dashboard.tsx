@@ -230,13 +230,15 @@ export default function Dashboard({ section }: { section?: SectionKey }) {
           return (
             <Button
               key={item.label}
-              variant={active ? "secondary" : "ghost"}
-              className={`w-full justify-start gap-3 h-11 rounded-lg text-sm ${
-                active ? "bg-slate-100 text-primary font-semibold" : "text-slate-600"
+              variant="ghost"
+              className={`w-full justify-start gap-3 h-11 rounded-xl text-sm transition-all border ${
+                active
+                  ? "bg-gradient-to-r from-primary to-blue-500 text-white font-semibold shadow-lg ring-2 ring-primary/25 border-primary/20"
+                  : "text-slate-600 hover:bg-slate-100/70 border-transparent"
               }`}
               onClick={() => goTo(item.path)}
             >
-              <item.icon className="w-4 h-4" />
+              <item.icon className={`w-4 h-4 ${active ? "text-white drop-shadow-sm" : "text-slate-500"}`} />
               {item.label}
             </Button>
           );
@@ -1049,7 +1051,7 @@ export default function Dashboard({ section }: { section?: SectionKey }) {
   };
 
   const renderMobileNav = () => (
-    <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-30 bg-white/95 border-t border-slate-200 shadow-[0_-4px_12px_rgba(0,0,0,0.06)] backdrop-blur">
+    <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-30 bg-white/90 border-t border-slate-200 shadow-[0_-4px_12px_rgba(0,0,0,0.06)] backdrop-blur">
       <div className="grid grid-cols-5">
         {[
           { ...navItems.find((n) => n.section === "stats")! },
@@ -1063,16 +1065,26 @@ export default function Dashboard({ section }: { section?: SectionKey }) {
             <button
               key={item.label}
               onClick={() => goTo(item.path)}
-              className={`flex flex-col items-center justify-center gap-1 py-3 text-[11px] font-semibold transition-colors ${
+              className={`flex flex-col items-center justify-center gap-1 py-3 text-[11px] font-semibold transition-all ${
                 active ? "text-primary" : "text-slate-500"
               }`}
             >
               <div
-                className={`flex items-center justify-center rounded-full ${
-                  item.emphasize ? "w-12 h-12 bg-primary/10 -translate-y-2 shadow-lg" : "w-9 h-9"
+                className={`flex items-center justify-center rounded-full transition-all ${
+                  item.emphasize ? "w-12 h-12 -translate-y-2" : "w-9 h-9"
+                } ${
+                  active
+                    ? "bg-gradient-to-br from-primary to-blue-500 text-white shadow-lg ring-2 ring-primary/25"
+                    : item.emphasize
+                      ? "bg-primary/10 shadow-lg"
+                      : "bg-slate-100"
                 }`}
               >
-                <item.icon className={`${item.emphasize ? "w-6 h-6" : "w-5 h-5"} ${active ? "text-primary" : "text-slate-500"}`} />
+                <item.icon
+                  className={`${item.emphasize ? "w-6 h-6" : "w-5 h-5"} ${
+                    active ? "text-white drop-shadow-sm" : "text-slate-500"
+                  }`}
+                />
               </div>
               <span className={`truncate ${item.emphasize ? "text-[12px]" : "text-[10px]"}`}>{item.label}</span>
             </button>
@@ -1083,30 +1095,34 @@ export default function Dashboard({ section }: { section?: SectionKey }) {
   );
 
   return (
-    <div className="min-h-screen font-sans bg-white relative overflow-hidden">
-      <div
-        className="fixed inset-0 z-0"
-        style={{
-          backgroundImage: `url(${gridBg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "repeat",
-        }}
-      />
+    <div className="min-h-screen font-sans bg-gradient-to-br from-slate-50 via-white to-blue-50/40 relative overflow-hidden">
+      <div className="pointer-events-none fixed inset-0 z-0">
+        <div className="absolute -top-40 -left-24 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
+        <div className="absolute bottom-6 right-[-120px] h-96 w-96 rounded-full bg-blue-200/35 blur-[120px]" />
+        <div
+          className="absolute inset-0 opacity-90"
+          style={{
+            backgroundImage: `url(${gridBg})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "repeat",
+          }}
+        />
+      </div>
 
       <div className="relative z-10 flex h-screen overflow-hidden">
-        <aside className="hidden lg:block w-60 bg-white border-r border-slate-200 overflow-y-auto shadow-sm">
+        <aside className="hidden lg:block w-60 bg-white/80 backdrop-blur-md border-r border-slate-200/80 overflow-y-auto shadow-md">
           <Sidebar />
         </aside>
 
         <Sheet open={isSidebarOpen} onOpenChange={setIsSidebarOpen}>
-          <SheetContent side="left" className="p-0 bg-white w-60 border-r-0">
+          <SheetContent side="left" className="p-0 bg-white/90 backdrop-blur-md w-60 border-r-0 shadow-xl">
             <Sidebar />
           </SheetContent>
         </Sheet>
 
         <main className="flex-1 flex flex-col overflow-y-auto">
-          <header className="h-16 px-6 flex items-center justify-between sticky top-0 bg-white/95 border-b border-slate-200 z-20 shadow-sm">
+          <header className="h-16 px-6 flex items-center justify-between sticky top-0 bg-white/85 backdrop-blur-xl border-b border-slate-200/80 z-20 shadow-[0_10px_30px_rgba(34,68,131,0.08)] ring-1 ring-primary/5">
             <div className="flex items-center gap-4">
               <Button variant="ghost" size="icon" className="lg:hidden" onClick={() => setIsSidebarOpen(true)}>
                 <Menu className="w-5 h-5" />
@@ -1127,7 +1143,7 @@ export default function Dashboard({ section }: { section?: SectionKey }) {
             </div>
           </header>
 
-          <div className="px-4 py-5 sm:p-6 space-y-5 sm:space-y-6 max-w-full overflow-x-hidden pb-24 lg:pb-10">
+          <div className="px-4 py-5 sm:p-6 space-y-5 sm:space-y-6 max-w-6xl w-full mx-auto overflow-x-hidden pb-24 lg:pb-10">
             {renderSection()}
           </div>
         </main>
